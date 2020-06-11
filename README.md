@@ -1,11 +1,11 @@
 # EKS-connecting-service-to-service
-EKS connecting service to service | php frontend and nodejs backend. 
+EKS connecting service to service | php frontend and nodejs backend. The idea is create backend with NodeJS include some json data, and connecting front-end PHP to help understanding communication between service to service. 
 
 --- 
 
-### Login ECR using Cloud9
+### Login ECR (Elastic Container Registry) using Cloud9
 
-`aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 985656090346.dkr.ecr.ap-southeast-2.amazonaws.com/nodeapp
+`aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 985xxx.dkr.ecr.ap-southeast-2.amazonaws.com/nodeapp
 `
 
 
@@ -26,13 +26,13 @@ docker images
 
 Docker tag from local repo to ECR. 
 
-`docker tag [image-name:v1] 985656090346.dkr.ecr.ap-southeast-2.amazonaws.com/[image-name:v1]`
+`docker tag [image-name:v1] 9856xxx.dkr.ecr.ap-southeast-2.amazonaws.com/[image-name:v1]`
 
 
 
 Docker push to ECR. 
 
-`docker push 985656090346.dkr.ecr.ap-southeast-2.amazonaws.com/[image-name:v1]`
+`docker push 9856xxx.dkr.ecr.ap-southeast-2.amazonaws.com/[image-name:v1]`
 
 ### Kubernetes Command
 Kubernetes pods list
@@ -44,3 +44,4 @@ or
 Applying Kubernetes from yaml file. 
 
 `kubectl apply -f frontend-jupiter-notebook.yaml`
+`kubectl apply -f backend-jupiter-notebook.yaml`
