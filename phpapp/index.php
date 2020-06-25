@@ -1,7 +1,8 @@
 <?php
 
     // $jsonurl = "https://05f73690990b461fb918310c655b6feb.vfs.cloud9.ap-southeast-2.amazonaws.com";
-    $host = 'http://backend.local:8080';
+    $host = 'http://nodeapp-master:8080'; // if using EKS
+    //$host = 'http://backend.local:8080'; // if using ECS with service discovery
     if (getenv('GET_HOSTS_FROM') == 'env') {
     $host = getenv('NODEAPP_MASTER_SERVICE_HOST');
     }
