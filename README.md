@@ -45,3 +45,6 @@ Applying Kubernetes from yaml file.
 
 `kubectl apply -f frontend-jupiter-notebook.yaml`
 `kubectl apply -f backend-jupiter-notebook.yaml`
+
+#### Note
+If you are using AWS serivce discovery, when you call your application it would http://[subdomain you defined].[domain you defined in private hosted zone]
