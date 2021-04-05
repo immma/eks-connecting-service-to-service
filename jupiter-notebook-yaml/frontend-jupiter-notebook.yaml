@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: phpapp
-        image: 985656090346.dkr.ecr.ap-southeast-2.amazonaws.com/phpapp:v12
+        image: 888.dkr.ecr.ap-southeast-2.amazonaws.com/phpapp:v12
         resources:
           requests:
             cpu: 100m
