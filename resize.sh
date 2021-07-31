@@ -1,4 +1,6 @@
-pecify the desired volume size in GiB as a command-line argument. If not specified, default to 20 GiB.
+#!/bin/bash
+
+#Specify the desired volume size in GiB as a command-line argument. If not specified, default to 20 GiB.
 SIZE=${1:-20}
 
 # Install the jq command-line JSON processor.
