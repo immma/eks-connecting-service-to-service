@@ -13,10 +13,10 @@
     $jsondata = json_decode($json);
     
     foreach ($jsondata as $data) {
-        echo "userID: " . $data->userId . "\n";
-        echo "title: " . $data->title . "\n";
-        echo "comments: " . $data->body . "\n";
-        echo "---------------------------------\n";
+        echo "userID: " . $data->userId . "<br>";
+        echo "title: " . $data->title . "<br>";
+        echo "comments: " . $data->body . "<br>";
+        echo "---------------------------------" . "<br>";
     }
     
 ?>
