@@ -1,6 +1,4 @@
 <?php
-
-    // $jsonurl = "https://05f73690990b461fb918310c655b6feb.vfs.cloud9.ap-southeast-2.amazonaws.com";
     $host = 'http://nodeapp-master:8080'; // if using EKS or 
     // $host = 'http://nodeapp-master.default.svc.cluster.local:8080'; // uncomment this if you're using managed Kubernetes or local Kubernetes (Minikube).
     //$host = 'http://backend.local:8080'; // if using ECS with service discovery
