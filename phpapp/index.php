@@ -6,7 +6,7 @@
     // $host = 'http://nodeapp-master.default.svc.cluster.local:8080'; // uncomment this if you're using managed Kubernetes or local Kubernetes (Minikube).
     //$host = 'http://backend.local:8080'; // if using ECS with service discovery
     if (getenv('GET_HOSTS_FROM') == 'env') {
-    $host = getenv('NODEAPP_MASTER_SERVICE_HOST');
+    $host = getenv('NODE_SERVICE');
     }
     
     
