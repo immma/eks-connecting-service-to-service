@@ -19,6 +19,7 @@ spec:
       containers:
       - name: phpapp
         image: 888.dkr.ecr.ap-southeast-2.amazonaws.com/phpapp:v12
+        # imagePullPolicy: Never # Uncomment this, if you're using local docker images.
         resources:
           requests:
             cpu: 100m
