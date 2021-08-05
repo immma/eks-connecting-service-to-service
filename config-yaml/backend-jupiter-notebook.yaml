@@ -39,7 +39,7 @@ metadata:
     tier: backend
 spec:
   ports:
-    - name: http
+    - name: tcp
       port: 9000
       targetPort: 3000
   selector:
