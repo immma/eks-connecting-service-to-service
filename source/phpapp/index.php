@@ -1,7 +1,21 @@
 <?php
-    echo "ENV" . "<br>";
+    echo "ENV: php: " . "<br>";
 
     $host = getenv("NODE_SERVICE");
+
+    
+    $json = file_get_contents($host);
+    // var_dump(json_decode($json));
+    
+    $jsondata = json_decode($json);
+    
+    foreach ($jsondata as $data) {
+        echo "userID: " . $data->userId . "<br>";
+        echo "title: " . $data->title . "<br>";
+        echo "comments: " . $data->body . "<br>";
+        echo "---------------------------------" . "<br>";
+    }
+
 
 ?>
 
@@ -23,6 +37,7 @@
 <body ng-app="serviceApp">
     <div class="container" ng-controller="serviceCtrl">
         <div>
+            <p>ENV: html load Javascript</p>
             <?php echo $host; ?>
 
             <table class="table" ng-repeat="res in response">
