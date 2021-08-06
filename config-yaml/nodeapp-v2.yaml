@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp-v2
+  labels:
+    app: nodeapp
+    version: v2
+spec:
+  selector:
+    matchLabels:
+      app: nodeapp
+      version: v2
+      tier: backend
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: nodeapp
+        version: v2
+        tier: backend
+    spec:
+      containers:
+      - name: master
+        image: ardih/nodeapp:v2.1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+
+---
+# apiversion: v1
+# kind: Service
+# metadata:
+#   name: nodeapp-v2
+#   labels:
+#     app: nodeapp-v2
+#     tier: backend
+# spec:
+#   ports:
+#     - name: tcp
+#       port: 9000
+#       targetPort: 3000
+#   selector:
+#     app: nodeapp-v2
+#     tier: backend
+# ---
+# apiVersion: networking.k8s.io/v1beta1
+# kind: Ingress
+# metadata:
+#   annotations:
+#     kubernetes.io/ingress.class: istio
+#   name: nodeapp-v2-ingress
+# spec:
+#   rules:
+#   - host: "ardih.id"
+#     http:
+#       paths:
+#       - path: /api/*
+#         backend:
+#           serviceName: nodeapp-v2
+#           servicePort: 9000
