@@ -62,16 +62,16 @@ Download from https://github.com/istio/istio/releases/
 Dowload istio with 
 `wget` or
 
-`
+```
 curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.9.7 TARGET_ARCH=x86_64 sh -
 
 mv istio-1.9.7/bin/istioctl /usr/local/bin/
 
 chmod +x /usr/local/bin/istioctl
-`
+```
 
 Install Istio in your cluster: 
-`
+```
 istioctl x precheck
 
 istioctl profile list
@@ -87,10 +87,10 @@ kubectl get ns
 #istio-system
 
 kubectl get po -n istio-system
-`
+```
 
 ## Inject Istio in Default Namespace
-`
+```
 #istio-injection
 kubectl label namespace default istio-injection=enabled
 
@@ -113,10 +113,10 @@ kubectl get po
 #sample response: 
     pod1 2/2
     pod2 2/2
-`
+```
 
 ### Check Istio ingress-gateway
-`
+```
 kubectl get svc -n istio-system
 
 #sample response:
@@ -127,22 +127,21 @@ istio-ingressgateway   LoadBalancer   10.103.194.217   10.103.194.217   15021:30
 istiod                 ClusterIP      10.98.136.106    <none>           15010/TCP,15012/TCP,443/TCP,15014/TCP                                        34h
 kiali                  ClusterIP      10.109.143.183   <none>           20001/TCP,9090/TCP                                                           33h
 prometheus             ClusterIP      10.108.238.233   <none>           9090/TCP              
-`
+```
 
 Copy EXTERNAL-IP of istio-ingressgateway
-`
+```
 sudo vim /etc/hosts
 
 #add
 10.103.194.217 ardih.id
-`
-
+```
 ### Connect with Istio ingress-gateway
-`
+```
 kubectl apply -f ingress\gateway.yaml
 
 kubectl apply -f ingress\phpapp.yaml
-`
+```
 
 ### Create v2 nodeapp
 Prerequisite:  
@@ -150,13 +149,13 @@ Open your `config-yaml\nodeapp-v2.yaml` then change image. Because the same imag
 For example `[yourimagename]:v2.0`
 
 Build new image. Change your directory of nodeapp.
-`
+```
 docker build . -t ardih/nodeapp:v2.0
-`
+```
 
 Change your yaml file `config-yaml\nodeapp.yaml`
 
-`
+```
 spec:
       containers:
       - name: master
@@ -164,47 +163,47 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 3000
-`
+```
 
 Apply new config file v2
-`
+```
 kubectl apply -f config-yaml\nodeapp-v2.yaml
-`
+```
 
 Change directory to `source\nodeapp-v3`
-`
+```
 docker build . -t ardih/nodeapp:v3.0
-`
+```
 
 Apply new config file v3
-`
+```
 kubectl apply -f config-yaml\nodeapp-v3.yaml
-`
+```
 
 Apply destination rule
-`
+```
 kubectl apply -f ingress\nodeapp-destination-rule.yaml
-`
+```
 
 Apply virtual `nodeapp` virtual service
-`
+```
 kubectl apply -f ingress\nodeapp-virtual.yaml
-`
+```
 
 Update route `nodeapp` virtual service with `v2, v3`
-`
+```
 kubectl apply -f config-yaml\nodeapp-v2.yaml
-`
+```
 
 ### Install Prometheus, Kiali, Grafana
-`
+```
 kubectl apply -f istio-1.9.7/samples/addons/prometheus.yaml
 kubectl apply -f istio-1.9.7/samples/addons/grafana.yaml
 kubectl apply -f istio-1.9.7/samples/addons/kiali.yaml
-`
+```
 
 Check istio-system service  
-`
+```
 kubectl get svc -n istio-system
 
 #sample response:
@@ -215,11 +214,11 @@ istio-ingressgateway   LoadBalancer   10.103.194.217   10.103.194.217   15021:30
 istiod                 ClusterIP      10.98.136.106    <none>           15010/TCP,15012/TCP,443/TCP,15014/TCP                                        34h
 kiali                  ClusterIP      10.109.143.183   <none>           20001/TCP,9090/TCP                                                           33h
 prometheus             ClusterIP      10.108.238.233   <none>           9090/TCP    
-`
+```
 
 Test Kiali in browser. You can copy the `CLUSTER-IP` and `PORT` from get svc result.
-http://10.109.143.183:20001
+`http://10.109.143.183:20001`
 
 Test Grafana in browser. You can copy the `CLUSTER-IP` and `PORT` from get svc result.
-http://10.96.228.48:3000
+`http://10.96.228.48:3000`
 
