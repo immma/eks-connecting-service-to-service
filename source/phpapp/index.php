@@ -53,7 +53,6 @@
         var app = angular.module('serviceApp', []);
 
         app.controller('serviceCtrl', function($scope, $http) {
-            // $scope.response = [{"id": "21212"}]
             $http.get("<?php echo $host; ?>").then(function (params) {
                 $scope.response = params.data;
             }, function error(params) {
