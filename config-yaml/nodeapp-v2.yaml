@@ -28,6 +28,9 @@ spec:
       - name: master
         image: ardih/nodeapp:v2.1
         imagePullPolicy: Never
+        env: 
+        - name: PORT
+          value: "3000"
         ports:
         - containerPort: 3000
 

@@ -1,13 +1,21 @@
 <?php
-    echo "ENV: php: " . "<br>";
+    echo "ENV: Load from PHP" . "<br>";
 
-    $host = getenv("NODE_SERVICE");
+    function curlGet($url) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        return $response;
+    }
 
-    
-    $json = file_get_contents($host);
+    $host = curlGet(getenv("NODE_SERVICE"));
+
+    // $json = file_get_contents($host);
     // var_dump(json_decode($json));
     
-    $jsondata = json_decode($json);
+    $jsondata = json_decode($host);
     
     foreach ($jsondata as $data) {
         echo "userID: " . $data->userId . "<br>";
@@ -15,8 +23,6 @@
         echo "comments: " . $data->body . "<br>";
         echo "---------------------------------" . "<br>";
     }
-
-
 ?>
 
 
@@ -36,9 +42,9 @@
 
 <body ng-app="serviceApp">
     <div class="container" ng-controller="serviceCtrl">
+    <hr>
         <div>
-            <p>ENV: html load Javascript</p>
-            <?php echo $host; ?>
+            <p>ENV: HTML load Javascript</p>
 
             <table class="table" ng-repeat="res in response">
                 <tr><td>ID</td><td>{{ res.id }}</td></tr>
@@ -53,12 +59,13 @@
         var app = angular.module('serviceApp', []);
 
         app.controller('serviceCtrl', function($scope, $http) {
-            $http.get("<?php echo $host; ?>").then(function (params) {
-                $scope.response = params.data;
-            }, function error(params) {
-                
-            })
+            // $http.get("<?php echo getenv("NODE_SERVICE"); ?>").then(function (params) {
+            //     $scope.response = params.data;
+            // }, function error(params) {
+            //     $scope.response = params.data;
+            // })
 
+            $scope.response = <?php echo $host; ?>;
         });
     </script>
 </body>
