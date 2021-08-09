@@ -9,16 +9,14 @@ spec:
   - route:
     - destination:
         host: nodeapp
+        subset: v1
+      weight: 70
+    - destination:
+        host: nodeapp
+        subset: v2
+      weight: 20
+    - destination:
+        host: nodeapp
         subset: v3
----
-apiVersion: networking.istio.io/v1alpha3
-kind: DestinationRule
-metadata:
-  name: nodeapp
-spec:
-  host: nodeapp
-  subsets:
-    - name: v3
-      labels:
-        version: v3
+      weight: 10
 ---
