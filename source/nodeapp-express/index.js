@@ -17,7 +17,7 @@ var corsMiddleware = function(req, res, next) {
 
 app.use(corsMiddleware);
 
-app.get('/', (req, res, next) => {
+app.get('/*', (req, res, next) => {
 
 
   var datas = [
