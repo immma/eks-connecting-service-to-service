@@ -89,6 +89,11 @@ kubectl get ns
 kubectl get po -n istio-system
 ```
 
+### Additional: Install bash completion
+To simplify your code on command line, you can install bash completion for kubectl based on this post. 
+https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-linux/
+
+
 ## Inject Istio in Default Namespace
 ```
 #istio-injection
