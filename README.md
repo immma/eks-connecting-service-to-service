@@ -227,3 +227,61 @@ Test Kiali in browser. You can copy the `CLUSTER-IP` and `PORT` from get svc res
 Test Grafana in browser. You can copy the `CLUSTER-IP` and `PORT` from get svc result.
 `http://10.96.228.48:3000`
 
+**# NOTE**  
+To automate your request you can use linux command with CURL to create request every Ns seconds. 
+
+**Example**
+```
+while true; do sleep 3; curl http://ardih.id/; echo -e '\n'$(date);done
+```
+
+And see what happen in Kiali & Grafana dashboard. 
+
+
+## **Bonus**
+**SSH into pod**
+```
+kubectl exec -it [pod-name] /bin/bash
+kubectl exec -it phpapp-646fc7d8bd-p7k69 /bin/bash
+```
+
+**Print all environment**
+```
+kubectl exec -it [pod-name] printenv
+kubectl exec -it phpapp-646fc7d8bd-p7k69 printenv
+```
+
+## Delete multiple docker images
+If you have several docker images in your local machine (I'm using linux), simply, use linux commands. 
+
+**Basic loop**
+```
+for i in {1..5}
+do
+   echo "Welcome $i times"
+done
+```
+
+### Docker rmi command loop (stands for Remove images)
+**Delete phpapp**
+```
+for i in {6..11}
+do
+   docker rmi ardih/phpapp:$i
+done
+```
+
+**Delete nodeapp**
+```
+for i in {2..11}
+do
+   docker rmi ardih/nodeapp:port.$i
+done
+```
+
+**Watch in grep in -n 2 seconds**
+```
+watch -n 2 'docker images | grep ardih/phpapp'
+watch -n 2 'docker images | grep ardih/nodeapp'
+```
+
