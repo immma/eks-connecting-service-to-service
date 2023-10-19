@@ -10,7 +10,7 @@ spec:
       app: nodeapp
       role: master
       tier: backend
-  replicas: 1
+  replicas: 6
   strategy:
     type: RollingUpdate
     rollingUpdate:
