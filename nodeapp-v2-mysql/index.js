@@ -5,10 +5,10 @@ const hostname = '127.0.0.1';
 const port = 8080;
 
 var db = mysql.createConnection({
-  host: 'xxx-xxx.cluster-ro-xxx.ap-southeast-3.rds.amazonaws.com',
-  user: 'admin',
+  host: 'ardih-xxx.cluster-ro-xxx.ap-southeast-3.rds.amazonaws.com',
+  user: 'xxx',
   password: 'xxx#',
-  database: 'ardih'
+  database: 'xxx'
 })
 
 const sql = "SELECT * FROM customer1 limit 10";
@@ -35,7 +35,6 @@ const server = http.createServer((req, res) => {
     // const jsonData = JSON.stringify(result);
     // console.log(jsonData);
     res.end(JSON.stringify(result, null, 2));
-    return result;
   });
 });
 
