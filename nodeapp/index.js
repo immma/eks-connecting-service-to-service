@@ -1,32 +1,42 @@
 const http = require('http');
+const mysql = require('mysql')
 
 const hostname = '127.0.0.1';
 const port = 8080;
 
+var db = mysql.createConnection({
+  host: 'ardih-auroradb.cluster-ro-clvjeg6jblmn.ap-southeast-3.rds.amazonaws.com',
+  user: 'admin',
+  password: 'Moodledude910#',
+  database: 'ardih'
+})
+
+const sql = "SELECT * FROM customer1 limit 10";
+
+function showdata() {
+  db.query(sql, function (err, result) {
+    if (err) throw err;
+    return result;
+  });
+}
+
+// showdata();
+
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  var datas = [
-  {
-  "userId": 1,
-  "id": 1,
-  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-  },
-  {
-  "userId": 1,
-  "id": 2,
-  "title": "qui est esse",
-  "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
-  },
-  {
-  "userId": 1,
-  "id": 3,
-  "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-  "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
-  }
-];
-  res.end(JSON.stringify(datas));
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "*");
+  res.setHeader('Access-Control-Allow-Methods', "*");
+  res.setHeader('Access-Control-Request-Method', '*');
+  res.setHeader('Content-Type', 'application/json');
+
+  db.query(sql, function (err, result) {
+    if (err) throw err;
+    // const jsonData = JSON.stringify(result);
+    // console.log(jsonData);
+    res.end(JSON.stringify(result, null, 2));
+    return result;
+  });
 });
 
 server.listen(port, () => {

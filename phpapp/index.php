@@ -16,9 +16,11 @@
     $jsondata = json_decode($json);
     
     foreach ($jsondata as $data) {
-        echo "userID: " . $data->userId . "<br>";
-        echo "title: " . $data->title . "<br>";
-        echo "comments: " . $data->body . "<br>";
+        echo "UserID: " . $data->guid . "<br>";
+        echo "fullname: " . $data->fullname . "<br>";
+        echo "City: " . $data->city . "<br>";
+        echo "Email: " . $data->email . "<br>";
+        echo "Phone: " . $data->phone . "<br>";
         echo "---------------------------------" . "<br>";
     }
     
