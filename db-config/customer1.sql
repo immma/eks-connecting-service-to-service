@@ -1,0 +1,1 @@
+CREATE TABLE `ardih`.`customer1` ( `guid` VARCHAR(50) NOT NULL, `seq` VARCHAR(10), `fullname` VARCHAR(50), `city` VARCHAR(50), `email` VARCHAR(50), `phone` VARCHAR(50), PRIMARY KEY (`guid`) );
