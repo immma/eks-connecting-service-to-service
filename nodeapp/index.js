@@ -5,9 +5,9 @@ const hostname = '127.0.0.1';
 const port = 8080;
 
 var db = mysql.createConnection({
-  host: 'ardih-auroradb.cluster-ro-clvjeg6jblmn.ap-southeast-3.rds.amazonaws.com',
+  host: 'ardih-xxx.cluster-ro-xxx.ap-southeast-3.rds.amazonaws.com',
   user: 'admin',
-  password: 'Moodledude910#',
+  password: 'xxx#',
   database: 'ardih'
 })
 
