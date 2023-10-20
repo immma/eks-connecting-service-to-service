@@ -50,5 +50,14 @@ pipeline {
             }
         }
 
+        stage('Delete docker image build') {
+            steps{
+                script {
+                    sh """docker rmi ${IMAGE_REPO_NAME}:${IMAGE_IDENTIFIER}${IMAGE_TAG}"""
+                    sh """docker rmi ${REPOSITORY_URI}:$IMAGE_IDENTIFIER$IMAGE_TAG"""
+                }
+            }
+        }
+
     }
 }
