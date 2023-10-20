@@ -1,0 +1,7 @@
+aws ecr get-login-password --region ap-southeast-3 | docker login --username AWS --password-stdin xxx.dkr.ecr.ap-southeast-3.amazonaws.com
+
+docker build -t nodeapp .
+
+docker tag nodeapp:latest xxx.dkr.ecr.ap-southeast-3.amazonaws.com/nodeapp:latest
+
+docker push xxx.dkr.ecr.ap-southeast-3.amazonaws.com/nodeapp:latest
