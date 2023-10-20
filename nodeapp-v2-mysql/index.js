@@ -1,26 +1,17 @@
 const http = require('http');
 const mysql = require('mysql')
 
-const hostname = '127.0.0.1';
+const hostname = 'localhost'; // change this to 0.0.0.0 for production
 const port = 8080;
 
 var db = mysql.createConnection({
   host: 'ardih-xxx.cluster-ro-xxx.ap-southeast-3.rds.amazonaws.com',
-  user: 'xxx',
+  user: 'admin',
   password: 'xxx#',
   database: 'xxx'
 })
 
 const sql = "SELECT * FROM customer1 limit 10";
-
-function showdata() {
-  db.query(sql, function (err, result) {
-    if (err) throw err;
-    return result;
-  });
-}
-
-// showdata();
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
@@ -32,9 +23,8 @@ const server = http.createServer((req, res) => {
 
   db.query(sql, function (err, result) {
     if (err) throw err;
-    // const jsonData = JSON.stringify(result);
-    // console.log(jsonData);
-    res.end(JSON.stringify(result, null, 2));
+    
+    res.end(JSON.stringify(result));
   });
 });
 
