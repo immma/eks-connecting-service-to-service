@@ -4,7 +4,7 @@ pipeline {
         AWS_ACCOUNT_ID= "xxx"
         AWS_DEFAULT_REGION= "ap-southeast-3"
         IMAGE_REPO_NAME= "phpapp"
-        IMAGE_IDENTIFIER= "jenkins-"
+        IMAGE_IDENTIFIER= "v.1."
         IMAGE_TAG= "2"
         REPOSITORY_URI = "xxx.dkr.ecr.ap-southeast-3.amazonaws.com/phpapp"
     }
