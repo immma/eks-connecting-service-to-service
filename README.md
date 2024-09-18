@@ -89,4 +89,6 @@ kubectl exec -it nginxbased sh
 Delete multiple docker images by name
 ```
 docker rmi $(docker images | grep 'htmlapp')
+
+docker rm $(docker ps --all -q)
 ```
