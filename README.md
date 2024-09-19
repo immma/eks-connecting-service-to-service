@@ -61,6 +61,12 @@ If you are using AWS serivce discovery, when you call your application it would 
 
 
 ## Additional command for Kubernetes
+
+Create alias for kubectl
+```
+alias k='kubectl -n <namespace>'
+```
+
 Watch all activity in Kubernetes cluster
 ```
 kubectl get all
