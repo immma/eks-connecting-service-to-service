@@ -96,5 +96,7 @@ Delete multiple docker images by name
 ```
 docker rmi $(docker images | grep 'htmlapp')
 
+docker rmi $(docker images | grep 'htmlapp' | awk '{print $3}')
+
 docker rm $(docker ps --all -q)
 ```
