@@ -212,4 +212,6 @@ chmod +x remove-images.sh
 ### Docker remove all process
 ```
 docker rm $(docker ps -a -q)
+
+docker container prune
 ```
