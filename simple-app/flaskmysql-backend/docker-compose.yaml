@@ -1,0 +1,26 @@
+version: "1"
+services:
+  frontend:
+    image: phpapp:4
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+  
+  backend:
+    image: flaskmysql:6-3.9
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql
+
+  mysql:
+    image: "mysql:latest"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret111
+      MYSQL_DATABASE: simpledb
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d/
