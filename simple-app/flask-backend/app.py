@@ -6,21 +6,21 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     data = [
-            {   "seq": 1,   "first": "Gertrude",   "email": "leb@ganti.ie" },
-            {   "seq": 2,   "first": "Antonio",   "email": "abohogos@cub.ca" },
-            {   "seq": 3,   "first": "Fred",   "email": "pup@jaige.pe" },
-            {   "seq": 4,   "first": "Gussie",   "email": "afpece@wi.bq" },
-            {   "seq": 5,   "first": "Louis",   "email": "po@itovudo.mw" },
-            {   "seq": 6,   "first": "Brent",   "email": "toztaned@heb.bb" },
-            {   "seq": 7,   "first": "Phillip",   "email": "mipzeh@pus.kg" },
-            {   "seq": 8,   "first": "Maud",   "email": "rosova@do.jo" },
-            {   "seq": 9,   "first": "Leila",   "email": "obtifor@saceduf.sa" },
-            {   "seq": 10,   "first": "Arthur",   "email": "bimte@feteho.ne" },
-            {   "seq": 11,   "first": "Lulu",   "email": "ta@nafuwavob.tn" },
-            {   "seq": 12,   "first": "Joe",   "email": "rocalasu@acedorac.kg" },
-            {   "seq": 13,   "first": "Rose",   "email": "furelmaw@jom.aw" },
-            {   "seq": 14,   "first": "Roy",   "email": "tihli@zab.bj" },
-            {   "seq": 15,   "first": "Jon",   "email": "wabsathe@mesi.is" }
+            {"seq": 1,   "first": "Gertrude",   "email": "leb@ganti.ie" },
+            {"seq": 2,   "first": "Antonio",   "email": "abohogos@cub.ca" },
+            {"seq": 3,   "first": "Fred",   "email": "pup@jaige.pe" },
+            {"seq": 4,   "first": "Gussie",   "email": "afpece@wi.bq" },
+            {"seq": 5,   "first": "Louis",   "email": "po@itovudo.mw" },
+            {"seq": 6,   "first": "Brent",   "email": "toztaned@heb.bb" },
+            {"seq": 7,   "first": "Phillip",   "email": "mipzeh@pus.kg" },
+            {"seq": 8,   "first": "Maud",   "email": "rosova@do.jo" },
+            {"seq": 9,   "first": "Leila",   "email": "obtifor@saceduf.sa" },
+            {"seq": 10,   "first": "Arthur",   "email": "bimte@feteho.ne" },
+            {"seq": 11,   "first": "Lulu",   "email": "ta@nafuwavob.tn" },
+            {"seq": 12,   "first": "Joe",   "email": "rocalasu@acedorac.kg" },
+            {"seq": 13,   "first": "Rose",   "email": "furelmaw@jom.aw" },
+            {"seq": 14,   "first": "Roy",   "email": "tihli@zab.bj" },
+            {"seq": 15,   "first": "Jon",   "email": "wabsathe@mesi.is" }
         ]
     
     # with open('user.json', 'r') as file:
