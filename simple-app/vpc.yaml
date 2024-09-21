@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: VPC with EC2 for EKS controller. 
+Description: VPC and no NAT Gateway
 
 # ----------- METADATA --------------
 Metadata: 
