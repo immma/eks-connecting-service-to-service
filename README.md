@@ -156,7 +156,7 @@ chmod +x phpapp-run.sh
 ./phpapp-run.sh
 ```
 
-To run **docker in background** you can pass with detach command `-p`
+To run **docker in background** you can pass with detach command `-d`
 ```
 docker run -p 80:80 -d phpapp:4
 ```
